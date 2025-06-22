@@ -1,23 +1,59 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { saveBooking } from "../services/Bookyng";
+import type { BookyngType } from "../types/BookyngType";
+import { useCart } from "../../shop/context/CartContext";
+import { useBookyng } from "../hooks/useBookyng";
 
 function Bookyng() {
     const user = JSON.parse(localStorage.getItem("authToken") || "{}");
+    const navigate = useNavigate();
+    console.log(navigate);
 
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
-    const [name, setName] = useState(user.username);
+    const [name] = useState(user.username);
+    const { getTotalAmount } = useCart();
+    const useFechaHora = useBookyng();
+
     const handleSubmit = (e: React.FormEvent) => {
+
         e.preventDefault();
+
         if (!date || !time || !name) {
-            alert("Por favor completa todos los campos.");
+            toast.warning("Por favor completa todos los campos.");
             return;
         }
-        alert(`Reserva registrada para ${name} el ${date} a las ${time}`);
+
+        if (getTotalAmount() === 0) {
+            toast.warning("No hay productos en el carrito");
+            return;
+        }
+
+        const data = {
+            nombre: name,
+            total: getTotalAmount(),
+            fecha: date,
+            hora: time + ":00",
+        };
+
+        saveBooking(data as BookyngType);
+
+        toast.success(`Reserva registrada para ${name} el ${date} a las ${time}`)
+
+        // navigate('/mis-reservas');
     };
 
+
+    console.log(useFechaHora);
+
+
+
     const timeSlots = {
-        mañana: ["08:00", "09:00", "10:00", "11:00"],
-        tarde: ["13:00", "14:00", "15:00", "16:00"],
+        mañana: ["09:00", "10:00", "11:00"],
+        tarde: ["12:00", "14:00", "15:00", "16:00", "17:00"],
         noche: ["18:00", "19:00", "20:00"],
     };
 
@@ -29,7 +65,7 @@ function Bookyng() {
                     <button
                         key={slot}
                         type="button"
-                        onClick={() => setTime(slot)}
+                        onClick={() => { setTime(slot); }}
                         className={`px-5 py-2 rounded-lg border text-sm ${time === slot
                             ? "bg-rose-500 text-white border-rose-400"
                             : "bg-white text-rose-900 border-white"
@@ -42,14 +78,13 @@ function Bookyng() {
         </div>
     );
 
-    // Genera los próximos 14 días
     const generateDates = () => {
         const today = new Date();
         const dates = [];
         for (let i = 0; i < 14; i++) {
             const d = new Date();
             d.setDate(today.getDate() + i);
-            const iso = d.toISOString().split("T")[0]; // formato yyyy-mm-dd
+            const iso = d.toISOString().split("T")[0];
             const label = d.toLocaleDateString("es-CL", { weekday: "short", day: "2-digit", month: "2-digit" });
             dates.push({ iso, label });
         }
@@ -74,12 +109,18 @@ function Bookyng() {
                             type="text"
                             value={name}
                             readOnly
-                            onChange={(e) => setName(e.target.value)}
-                            className="p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rose-500"
+                            className="p-2 rounded-lg capitalize border border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-500"
                             placeholder="Tu nombre"
                         />
                     </label>
 
+                    {
+                        useFechaHora.map((item, index) => (
+                            <div key={index}>
+                                {item.hora}
+                            </div>
+                        ))
+                    }
                     <div className="flex flex-col gap-2 w-full">
                         <span className="text-sm font-medium">Fecha</span>
                         <div className="flex overflow-x-auto gap-2 py-2">
@@ -113,6 +154,7 @@ function Bookyng() {
                     </button>
                 </form>
             </div>
+
         </div>
     );
 }

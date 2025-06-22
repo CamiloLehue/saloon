@@ -1,8 +1,7 @@
 export interface BookyngType {
     id: number;
-    username: string;
+    nombre: string;
     total: number;
-    created_at: string;
-    updated_at: string;
-
+    fecha: string;
+    hora: string;
 };

@@ -1,46 +1,61 @@
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react" // <-- se añadió useRef
 import { GrFormTrash, GrShop } from "react-icons/gr"
 import { useCart } from "../pages/shop/context/CartContext";
 import { useNavigate } from "react-router";
 
 function Header() {
     const navigate = useNavigate();
-    const { cart, uniqueItems, removeFromCart, getTotalAmount, getTotalItems } = useCart();
+    const { cart, uniqueItems, removeFromCart, getTotalAmount, getTotalItems, clearCart } = useCart();
     const user = JSON.parse(localStorage.getItem("authToken") || "{}");
+
     const menu = [
         { id: 1, name: 'Inicio', href: '/' },
-        { id: 3, name: 'Servicios', href: '/servicios' },
-        { id: 4, name: 'Reservar', href: '/reservar' },
-        { id: 4, name: 'Mis reservas', href: '/mis-reservas' }
+        { id: 2, name: 'Servicios', href: '/servicios' },
+        { id: 3, name: 'Crear mi reserva', href: '/reservar' },
     ];
 
     const [isOpen, setIsOpen] = useState(false);
+    const cartRef = useRef<HTMLDivElement>(null);
 
-    const handleKeyDown = useCallback(
-        (event: KeyboardEvent) => {
-            if (event.key === "Escape") {
-                setIsOpen(false);
-            }
-        },
-        [setIsOpen]
-    );
+    const handleKeyDown = useCallback((event: KeyboardEvent) => {
+        if (event.key === "Escape") {
+            setIsOpen(false);
+        }
+    }, []);
+
+    const handleClickOutside = useCallback((event: MouseEvent) => {
+        if (cartRef.current && !cartRef.current.contains(event.target as Node)) {
+            setIsOpen(false);
+        }
+    }, []);
 
     useEffect(() => {
         window.addEventListener("keydown", handleKeyDown);
+        document.addEventListener("mousedown", handleClickOutside); // <-- clic fuera
+
         return () => {
             window.removeEventListener("keydown", handleKeyDown);
+            document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [handleKeyDown]);
+    }, [handleKeyDown, handleClickOutside]);
 
     return (
         <div className='relative w-full max-w-[1500px] flex justify-center items-center h-full mx-auto py-5 gap-10'>
-            <nav className="relative bg-white shadow shadow-rose-950/30 px-20 rounded-full py-4">
+            <nav className="relative bg-white shadow shadow-rose-950/30 ps-10 pe-3 rounded-full py-4">
                 <ul className="flex gap-10 ">
                     {menu.map((item, index) => (
                         <>
-                            <li key={index}>
-                                <a href={item.href} className="text-rose-800 font-light">{item.name}</a>
-                            </li>
+                            {
+                                item.id === 3
+                                    ?
+                                    <li key={index}>
+                                        <a href={item.href} className=" font-light bg-rose-500 px-4 rounded-full text-white py-2 shadow">{item.name}</a>
+                                    </li>
+                                    :
+                                    <li key={index}>
+                                        <a href={item.href} className="text-rose-500 font-light">{item.name}</a>
+                                    </li>
+                            }
                         </>
                     ))}
                 </ul>
@@ -49,7 +64,7 @@ function Header() {
                 <div>
                     <nav>
                         <ul className="flex justify-center items-center ">
-                            <li className="cursor-pointer" onClick={() => {navigate('/mis-reservas')}}>Mis reservas</li>
+                            <li className="cursor-pointer" onClick={() => { navigate('/mis-reservas') }}>Mis reservas</li>
                         </ul>
                     </nav>
                 </div>
@@ -69,11 +84,20 @@ function Header() {
 
                 {
                     isOpen &&
-                    <div className="w-90 min-h-90 pb-5 absolute top-8 right-0 bg-white/10 border-s border-s-zinc-50/20 border-t border-t-zinc-50/40 rounded-2xl backdrop-blur-2xl z-20">
+                    <div
+                        ref={cartRef}
+                        className="w-90 min-h-90 pb-5 absolute top-14 right-0 bg-white/10 border-s border-s-zinc-50/20 border-t border-t-zinc-50/40 rounded-2xl backdrop-blur-2xl z-20">
                         <div className="p-5">
                             <h2 className="text-lg text-white">Listado de Artículos</h2>
                         </div>
                         <div className="p-5 py-2">
+                            <div className="flex justify-end items-center">
+                                <button
+                                    onClick={() => clearCart()}
+                                >
+                                    Vaciar carro
+                                </button>
+                            </div>
                             <nav className="flex flex-col justify-start items-start gap-3">
                                 {
                                     uniqueItems(cart).map((id, index) => {

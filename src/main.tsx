@@ -13,6 +13,7 @@ import Login from './pages/auth/pages/Login'
 import ProtectedRoute from './pages/auth/components/ProtectedRoute'
 import MyBookyng from './pages/bookyng/pages/MyBookyng'
 import Cut from './pages/haircut/pages/Cut'
+import Register from './pages/auth/pages/Register'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')!).render(
         <Routes>
           <Route element={<Template />}>
             <Route path='/auth' element={<Login />} />
+            <Route path='/registrar' element={<Register />} />
             <Route index element={<Home />} />
             <Route element={<ProtectedRoute />}>
               <Route path='/servicios' element={<Servicios />} />

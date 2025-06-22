@@ -1,7 +1,8 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
 import type { CartContextType, CartType } from "../type/ShopType";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-// EXTENSIÓN: Tipos adicionales en el contexto
 type ExtendedCartContextType = CartContextType & {
     clearCart: () => void;
     getTotalAmount: () => number;
@@ -22,15 +23,18 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
 
     const addToCart = (item: CartType) => {
         setCart((prev) => [...prev, item]);
+        toast.success(`Se añadió a tu carrito ${item.nombre}`);
     };
 
     const removeFromCart = (item: CartType) => {
         setCart((prev) => prev.filter((c) => c.id !== item.id));
+        toast.error(`Se eliminó a tu carrito ${item.nombre}`);
     };
 
     const clearCart = () => {
         setCart([]);
         localStorage.removeItem("cart");
+        toast.warning(`Se vació tu carrito`);
     };
 
     const uniqueItems = (arr: CartType[]) => [...new Set(arr.map((item) => item.id))];
@@ -56,6 +60,7 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
             }}
         >
             {children}
+            <ToastContainer position="top-right" autoClose={700} />
         </CartContext.Provider>
     );
 };

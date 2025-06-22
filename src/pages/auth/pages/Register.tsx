@@ -1,45 +1,40 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import Loading from "../../../components/ui/Loading";
 
-function Login() {
+function Register() {
+
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [loading, setLoading] = useState(false);
+
+    console.log(password);
+
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        setLoading(true);
-
         localStorage.setItem("authToken", JSON.stringify({ username }));
         localStorage.removeItem("cart");
-
-        setTimeout(() => {
-            setLoading(false);
-            navigate("/servicios");
-        }, 1000);
+        navigate("/servicios");
     };
 
     const user = JSON.parse(localStorage.getItem("authToken") || "{}");
 
-    if (loading) {
-        return <Loading />;
-    }
-
     return (
-        <div className="grid grid-cols-2 min-h-[600px]">
-            <div className="w-full h-full ">
-                {user.username}
-            </div>
-            <div className="w-full h-full flex flex-col justify-start pt-10 items-center ">
-                <h1 className="text-3xl mb-8">Inicia Sesión</h1>
+        <div className="grid grid-cols-2 min-h-[600px] pt-10">
+            <div className="w-full h-full flex flex-col justify-start items-center ">
+                <h1 className="text-3xl mb-8">Registrarme</h1>
                 <form onSubmit={handleSubmit} className="w-2/3 max-w-md space-y-4">
                     <input
                         type="text"
                         placeholder="Usuario"
-                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        className="w-full p-2 border border-rose-300 rounded"
+                        required
+                    />
+                    <input
+                        type="mail"
+                        placeholder="user@example.com"
                         onChange={(e) => setUsername(e.target.value)}
                         className="w-full p-2 border border-rose-300 rounded"
                         required
@@ -47,21 +42,33 @@ function Login() {
                     <input
                         type="password"
                         placeholder="Contraseña"
-                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="w-full p-2 border border-rose-300 rounded"
+                        required
+                    />
+                    <input
+                        type="password"
+                        placeholder="Repetir Contraseña"
                         onChange={(e) => setPassword(e.target.value)}
                         className="w-full p-2 border border-rose-300 rounded"
                         required
                     />
                     <button
                         type="submit"
-                        className="w-full rounded-full bg-white  text-rose-600 p-2 hover:bg-rose-400 hover:text-white"
+                        className="w-full rounded-full bg-white mt-10  text-rose-600 p-2 hover:bg-rose-400 hover:text-white"
                     >
-                        Ingresar
+                        Crear Cuenta
                     </button>
                 </form>
             </div>
+            <div className="w-full h-full ">
+                {
+                    user.username
+                }
+            </div>
+
         </div>
     );
 }
 
-export default Login;
+export default Register;

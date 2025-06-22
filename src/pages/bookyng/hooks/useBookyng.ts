@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { getBookyng } from "../services/Bookyng";
+import { getBookyng, getFechaHora } from "../services/Bookyng";
 import type { BookyngType } from "../types/BookyngType";
 
 
@@ -12,4 +12,14 @@ export const useBookyng = () => {
     }, []);
 
     return bookyng;
+};
+
+export const useFechaHora = () => {
+    const [fechaHora, setFechaHora] = useState<string[]>([]);
+
+    useEffect(() => {
+        getFechaHora().then((data) => setFechaHora(data));
+    }, []);
+
+    return fechaHora;
 };
