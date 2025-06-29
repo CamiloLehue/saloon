@@ -1,9 +1,7 @@
 import { useParams } from "react-router";
-import { useRef } from 'react'
-import { useHover } from 'usehooks-ts'
 import type { CartType } from "../../shop/type/ShopType";
 import { useCart } from "../../shop/context/CartContext";
-import { GrAdd, GrFavorite } from "react-icons/gr";
+import { GrFavorite } from "react-icons/gr";
 // import { useHaircuts } from "../../haircut/hooks/useHairCut";
 
 function Cut() {
@@ -89,21 +87,25 @@ function Cut() {
 const CutCard = ({ haircut }: { haircut: CartType }) => {
   const { addToCart, cart, removeFromCart } = useCart();
 
-  const ref = useRef(null)
-  const isHover = useHover(ref as unknown as React.RefObject<HTMLDivElement>)
 
-  const handleClick = () => {
-    if (cart.find(c => c.id === haircut.id)) {
-      removeFromCart(haircut)
-    } else {
+  const handleClick = ({ type }: { type: string }) => {
+
+    if (type === "add") {
       addToCart(haircut)
+    } else if (type === "remove") {
+      if (cart.find(c => c.id === haircut.id)) {
+        removeFromCart(haircut)
+      } else {
+        addToCart(haircut)
+      }
     }
+
+
   }
 
   return (
     <div
-      ref={ref}
-      onClick={() => handleClick()}
+      onClick={() => handleClick({ type: "remove" })}
       className="relative flex flex-col justify-center items-center gap-2 scale-80 cursor-pointer">
       <div className="group relative w-full h-[300px]">
         <div className="absolute top-0 
@@ -121,16 +123,19 @@ const CutCard = ({ haircut }: { haircut: CartType }) => {
         </div>
         {
           cart.find(c => c.id === haircut.id) &&
-          <div className="absolute -skew-3 bottom-5 text-green-800 -left-10 w-50 h-12 z-1 bg-green-300 border-4 border-green-900 flex  justify-center items-center gap-2">
+          <div
+            onClick={() => handleClick({ type: "add" })}
+            className="absolute z-50 -skew-3 bottom-10 text-green-800 -left-10 w-50 h-12  bg-green-300 border-4 border-green-900 flex  justify-center items-center gap-2">
             {cart.find(c => c.id === haircut.id) ? <h2 className=" flex items-center gap-2 font-bold"><GrFavorite />
               En Carrito  </h2> : null}
-            {
-              <div className=" w-12 border-s-4 border-green-800 flex items-center justify-center">
-                <GrAdd className="text-green-800 text-2xl" />
-              </div>
-            }
+
           </div>
         }
+        <div className="absolute -left-3 z-30 -skew-3 top-10 bg-warning/20 px-10 py-5 backdrop-blur-md ">
+          <div className="absolute left-0 top-0 h-full w-2 bg-white"></div>
+          <div className="absolute left-0 top-0 h-full w-4 bg-white/50"></div>
+          <h1 className="relative font-bold uppercase text-white"> {haircut.nombre}</h1>
+        </div>
         <div className="relative 
                                 bg-rose-400 
                                 border-2 border-rose-900
@@ -142,8 +147,7 @@ const CutCard = ({ haircut }: { haircut: CartType }) => {
             <img src={`/services/${haircut.imagen_src}`} alt="" className="absolute left-0 top-0 w-full h-full object-contain scale-150 
             " />
             <div className="relative w-full h-full bg-gradient-to-t from-rose-200/70">
-              <h1 className="relative z-30 text-white"></h1>
-              <h3 className="relative font-bold uppercase text-white"> {haircut.nombre}</h3>
+
             </div>
           </div>
         </div>

@@ -37,7 +37,7 @@ function Login() {
                     Para agendar tu hora!
                 </h3>
                 <form onSubmit={handleSubmit}>
-                    <section className="flex flex-col justify-center items-center gap-2 scale-80">
+                    <section className="flex flex-col justify-center items-center gap-2 scale-94">
                         <div className="group relative w-90 h-40 ">
                             <div className="absolute top-0 
                                 bg-rose-900 
@@ -64,7 +64,7 @@ function Login() {
                                         <input
                                             name="username"
                                             type="text"
-                                            placeholder="Usuario"
+                                            placeholder="Ingrese aquí tu usuario"
                                             value={username}
                                             onChange={(e) => setUsername(e.target.value)}
                                             className="w-full p-2  border-2 border-rose-900 rounded text-rose-900"
@@ -113,7 +113,7 @@ function Login() {
                             </div>
                         </div>
                     </section>
-                    <div className="flex justify-center flex-col items-center gap-5 scale-80">
+                    <div className="flex justify-center flex-col items-center gap-5 scale-94">
                         <label
                             className="relative text-[#8b0836] flex cursor-pointer items-center justify-center gap-[1em] scale-90"
                             htmlFor="heart"
@@ -155,17 +155,16 @@ function Login() {
                                 bg-rose-900 
                                 w-full h-[calc(100%-2.5rem)] 
                                 translate-y-2  translate-x-2
-                                -skew-3 group-hover:translate-y-6  group-hover:translate-x-6 transition-all duration-300 "
+                                -skew-3 group-hover:translate-y-7  group-hover:translate-x-3 transition-all duration-300 "
                             >
                             </div>
                             <div className="relative 
                                 bg-rose-400 
                                 border-2 border-rose-900
-                             h-[calc(100%-2.5rem)]
+                                h-[calc(100%-2.5rem)]
                                 -skew-3
                                 px-10
                                 "
-
                             >
                                 <div className="flex justify-center items-center h-full w-full">
                                     <h3>Ingresar</h3>

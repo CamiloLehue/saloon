@@ -33,17 +33,31 @@ function Servicios() {
                 <small className="text-lg">Selecciona tú servicio</small>
             </div>
             <div className="flex w-full h-full flex-col justify-start items-start gap-5 p-5">
-                <div className="w-full grid grid-cols-2 gap-5 overflow-hidden">
+                <div className="w-full flex -space-x-50 h-full  space-y-3 ">
                     {
                         dataServices.map((service, index) => (
                             <div
                                 key={index}
-                                onClick={() => navigate(`/servicios/${service.id}`)}
-                                className="relative w-full h-90 group cursor-pointer hover:scale-100 transition-all duration-200 overflow-hidden ">
-                                <img src={service.img} alt={service.name} className="w-full h-full object-cover  group-hover:scale-120 transition-all duration-300" />
-                                <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
-                                <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center">
-                                    <h2 className="text-white text-center font-light uppercase">{service.name}</h2>
+                                className=" w-full group h-[350px]  stransition-all duration-500 overflow-hidden flex flex-col justify-center items-center gap-2 cursor-pointer"
+
+                            >
+                                <div
+                                    onClick={() => navigate(`/servicios/${service.id}`)}
+                                    className="relative w-full h-full group cursor-pointer transition-all duration-500 "
+                                    style={{
+                                        clipPath: "polygon(85% 0%, 100% 50%, 85% 100%, 0% 100%, 10% 50%, 0% 0%)"
+                                    }}
+                                >
+                                    <img src={service.img} alt={service.name} className="group-hover:-translate-x-5 w-full h-full object-cover group-hover:scale-105 transition-all duration-500" />
+                                    <div className="absolute  left-0 top-0 w-full h-full bg-gradient-to-l from-rose-200/50 ">
+                                        <div className="absolute bottom-10 left-10  h-10  bg-black/20 group-hover:bg-rose-400 transition-all duration-300 -skew-3  px-5 flex justify-center items-center">
+                                            <h2 className="text-white font-bold uppercase ">
+                                                {
+                                                    service.name
+                                                }
+                                            </h2>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         ))
