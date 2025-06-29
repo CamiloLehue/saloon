@@ -4,6 +4,7 @@ export interface CartType {
     descripcion: string,
     precio: number,
     href: string,
+    imagen_src: string,
 }
 
 export interface CartContextType {
