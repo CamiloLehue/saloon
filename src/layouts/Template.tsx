@@ -17,11 +17,11 @@ function Template() {
     };
 
     return (
-        <div className="h-full min-h-screen text-white  bg-fixed bg-cover bg-center backdrop-blur"
+        <div className="h-full min-h-screen w-full text-white  bg-fixed bg-cover bg-center backdrop-blur"
             style={{
                 backgroundImage: 'url("/bg-hero2.jpeg")',
             }}>
-            <div className='bg-gradient-to-bl from-rose-700 to-rose-300/50'>
+            <div className='bg-gradient-to-bl from-rose-700 to-rose-300/50 w-full h-full'>
                 <div className='relative bg-white p-2 w-full h-full flex justify-between items-center gap-10'>
                     <div className='px-5 flex justify-center items-center gap-3'>
                         <small className='text-black'>+56 9 5566 3435</small>
@@ -57,9 +57,9 @@ function Template() {
 
                     </nav>
                 </div>
-                <div className='max-w-[1500px] h-full mx-auto py-5 flex flex-col justify-center items-center gap-10'>
+                <div className='max-w-[1500px]  mx-auto py-5 flex flex-col justify-center items-center gap-10 h-full'>
                     <Header />
-                    <div className='backdrop-blur-lg w-full rounded-xl bg-rose-400/60  py-5  '>
+                    <div className=' py-5  w-full h-full'>
                         <Outlet />
                     </div>
                 </div>

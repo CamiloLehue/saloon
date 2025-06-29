@@ -10,7 +10,6 @@ import { useBookyng } from "../hooks/useBookyng";
 function Bookyng() {
     const user = JSON.parse(localStorage.getItem("authToken") || "{}");
     const navigate = useNavigate();
-    console.log(navigate);
 
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
@@ -19,7 +18,6 @@ function Bookyng() {
     const useFechaHora = useBookyng();
 
     const handleSubmit = (e: React.FormEvent) => {
-
         e.preventDefault();
 
         if (!date || !time || !name) {
@@ -29,6 +27,7 @@ function Bookyng() {
 
         if (getTotalAmount() === 0) {
             toast.warning("No hay productos en el carrito");
+            navigate("/servicios");
             return;
         }
 
@@ -41,15 +40,17 @@ function Bookyng() {
 
         saveBooking(data as BookyngType);
 
-        toast.success(`Reserva registrada para ${name} el ${date} a las ${time}`)
+        toast.success(`Reserva registrada para ${name} el ${date} a las ${time}`);
 
+        // pasar item a la lista de reservas
+        // agregar al carrito
+
+        const message = `Hola ${name}, Se ingresó el registro de tu reserva para el ${date} a las ${time}. ¡Gracias!`;
+        const phone = "56991222607";
+        const whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappURL, "_blank");
         // navigate('/mis-reservas');
     };
-
-
-    console.log(useFechaHora);
-
-
 
     const timeSlots = {
         mañana: ["09:00", "10:00", "11:00"],
@@ -65,7 +66,7 @@ function Bookyng() {
                     <button
                         key={slot}
                         type="button"
-                        onClick={() => { setTime(slot); }}
+                        onClick={() => setTime(slot)}
                         className={`px-5 py-2 rounded-lg border text-sm ${time === slot
                             ? "bg-rose-500 text-white border-rose-400"
                             : "bg-white text-rose-900 border-white"
@@ -85,7 +86,11 @@ function Bookyng() {
             const d = new Date();
             d.setDate(today.getDate() + i);
             const iso = d.toISOString().split("T")[0];
-            const label = d.toLocaleDateString("es-CL", { weekday: "short", day: "2-digit", month: "2-digit" });
+            const label = d.toLocaleDateString("es-CL", {
+                weekday: "short",
+                day: "2-digit",
+                month: "2-digit",
+            });
             dates.push({ iso, label });
         }
         return dates;
@@ -114,13 +119,12 @@ function Bookyng() {
                         />
                     </label>
 
-                    {
-                        useFechaHora.map((item, index) => (
-                            <div key={index}>
-                                {item.hora}
-                            </div>
-                        ))
-                    }
+                    {useFechaHora.map((item, index) => (
+                        <div key={index}>
+                            {item.hora}
+                        </div>
+                    ))}
+
                     <div className="flex flex-col gap-2 w-full">
                         <span className="text-sm font-medium">Fecha</span>
                         <div className="flex overflow-x-auto gap-2 py-2">
@@ -154,7 +158,6 @@ function Bookyng() {
                     </button>
                 </form>
             </div>
-
         </div>
     );
 }

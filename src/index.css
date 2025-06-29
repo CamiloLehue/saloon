@@ -1,276 +1,276 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary: #0d0d0d;
-    --color-secondary: #1a1a1a;
-    --color-accent: #272a30;
+  --color-primary: #0d0d0d;
+  --color-secondary: #1a1a1a;
+  --color-accent: #272a30;
 
-    --color-white: #e6e6f5;
-    --color-success: #68b353;
-    --color-warning: #ffd700;
-    --color-danger: #ff1010;
+  --color-white: #e6e6f5;
+  --color-success: #68b353;
+  --color-warning: #ffd700;
+  --color-danger: #ff1010;
 }
 
 @layer base {
 
-    input[type="text"],
-    input[type="password"] {
-        @apply w-full p-2 border border-rose-300 rounded-2xl;
-    }
+  input[type="text"],
+  input[type="password"] {
+    @apply w-full p-2 border border-rose-300 rounded-2xl;
+  }
 
-    input[type="text"]:focus,
-    input[type="password"]:focus {
-        @apply border-rose-400 outline rounded-2xl outline-rose-400;
-    }
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    @apply border-rose-400 outline rounded-2xl outline-rose-400;
+  }
 
-    h1 {
-        @apply text-2xl;
-    }
+  h1 {
+    @apply text-2xl;
+  }
 
-    h2 {
-        @apply text-xl;
-    }
+  h2 {
+    @apply text-xl;
+  }
 
-    h3 {
-        @apply text-lg;
-    }
+  h3 {
+    @apply text-lg;
+  }
 
-    h4 {
-        @apply text-base;
-    }
+  h4 {
+    @apply text-base;
+  }
 
-    h5 {
-        @apply text-sm;
-    }
+  h5 {
+    @apply text-sm;
+  }
 
-    h6 {
-        @apply text-xs;
-    }
+  h6 {
+    @apply text-xs;
+  }
 
-    p {
-        @apply text-sm;
-    }
+  p {
+    @apply text-sm;
+  }
 
-    a {
-        @apply text-[#c41a01] font-bold;
-    }
+  a {
+    @apply text-[#c41a01] font-bold;
+  }
 
-    button {
-        @apply text-[#d7d5d5] transition-all duration-200 ease-in cursor-pointer;
-    }
+  button {
+    @apply text-[#d7d5d5] transition-all duration-200 ease-in cursor-pointer;
+  }
 
-    input {
-        @apply transition-all duration-200 ease-in cursor-pointer;
-    }
+  input {
+    @apply transition-all duration-200 ease-in cursor-pointer;
+  }
 }
 
 /* azeret-mono-latin-wght-normal */
 @font-face {
-    font-family: 'Azeret Mono Variable';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 900;
-    src: url(https://cdn.jsdelivr.net/fontsource/fonts/azeret-mono:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  font-family: 'Azeret Mono Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/azeret-mono:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /* iosevka-latin-400-normal */
 @font-face {
-    font-family: 'Iosevka';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 400;
-    src: url(https://cdn.jsdelivr.net/fontsource/fonts/iosevka@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/iosevka@latest/latin-400-normal.woff) format('woff');
+  font-family: 'Iosevka';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/iosevka@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/iosevka@latest/latin-400-normal.woff) format('woff');
 }
 
 /* pitagon-sans-mono-latin-400-normal */
 @font-face {
-    font-family: 'Pitagon Sans Mono';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 400;
-    src: url(https://cdn.jsdelivr.net/fontsource/fonts/pitagon-sans-mono@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/pitagon-sans-mono@latest/latin-400-normal.woff) format('woff');
+  font-family: 'Pitagon Sans Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/pitagon-sans-mono@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/pitagon-sans-mono@latest/latin-400-normal.woff) format('woff');
 }
 
 /* geist-sans-latin-400-normal */
 @font-face {
-    font-family: 'Geist Sans';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 400;
-    src: url(https://cdn.jsdelivr.net/fontsource/fonts/geist-sans@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/geist-sans@latest/latin-400-normal.woff) format('woff');
+  font-family: 'Geist Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/geist-sans@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/geist-sans@latest/latin-400-normal.woff) format('woff');
 }
 
 /* libre-franklin-latin-wght-normal */
 @font-face {
-    font-family: 'Libre Franklin Variable';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 900;
-    src: url(https://cdn.jsdelivr.net/fontsource/fonts/libre-franklin:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  font-family: 'Libre Franklin Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/libre-franklin:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /* figtree-latin-wght-normal */
 @font-face {
-    font-family: 'Figtree Variable';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 300 900;
-    src: url(https://cdn.jsdelivr.net/fontsource/fonts/figtree:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  font-family: 'Figtree Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 900;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/figtree:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /* titillium-web-latin-400-normal */
 @font-face {
-    font-family: 'Titillium Web';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 400;
-    src: url(https://cdn.jsdelivr.net/fontsource/fonts/titillium-web@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/titillium-web@latest/latin-400-normal.woff) format('woff');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/titillium-web@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/titillium-web@latest/latin-400-normal.woff) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /* noto-sans-bengali-latin-wght-normal */
 @font-face {
-    font-family: 'Noto Sans Bengali Variable';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 900;
-    src: url(https://cdn.jsdelivr.net/fontsource/fonts/noto-sans-bengali:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  font-family: 'Noto Sans Bengali Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/noto-sans-bengali:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /* lexend-deca-latin-wght-normal */
 @font-face {
-    font-family: 'Lexend Deca Variable';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 900;
-    src: url(https://cdn.jsdelivr.net/fontsource/fonts/lexend-deca:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  font-family: 'Lexend Deca Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/lexend-deca:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 
 body {
 
-    width: 100%;
-    height: 100%;
-    /* font-family: 'Azeret Mono Variable', monospace; */
-    /* font-family: 'Iosevka', monospace; */
-    /* font-family: 'Pitagon Sans Mono', monospace; */
-    /* font-family: 'Geist Sans', sans-serif; */
-    /* font-family: 'Libre Franklin Variable', sans-serif; */
-    font-family: 'Figtree Variable', sans-serif;
-    /* font-family: 'Titillium Web', sans-serif; */
-    /* font-family: 'Noto Sans Bengali Variable', sans-serif; */
-    /* font-family: 'Lexend Deca Variable', sans-serif; */
+  width: 100%;
+  height: 100%;
+  /* font-family: 'Azeret Mono Variable', monospace; */
+  /* font-family: 'Iosevka', monospace; */
+  /* font-family: 'Pitagon Sans Mono', monospace; */
+  /* font-family: 'Geist Sans', sans-serif; */
+  /* font-family: 'Libre Franklin Variable', sans-serif; */
+  font-family: 'Figtree Variable', sans-serif;
+  /* font-family: 'Titillium Web', sans-serif; */
+  /* font-family: 'Noto Sans Bengali Variable', sans-serif; */
+  /* font-family: 'Lexend Deca Variable', sans-serif; */
 }
 
 
 
 /* Estilo general para el scroll */
 ::-webkit-scrollbar {
-    width: 5px;
-    height: 10px;
+  width: 5px;
+  height: 10px;
 }
 
 /* Track (fondo del scroll) */
 ::-webkit-scrollbar-track {
-    background: #16161600;
-    border-radius: 5px;
+  background: #16161600;
+  border-radius: 5px;
 }
 
 /* Thumb (la parte que se mueve) */
 ::-webkit-scrollbar-thumb {
-    background: #ffffff49;
-    border-radius: 5px;
-    transition: background 0.3s ease;
+  background: #ffffff49;
+  border-radius: 5px;
+  transition: background 0.3s ease;
 }
 
 /* Thumb al pasar el mouse */
 ::-webkit-scrollbar-thumb:hover {
-    background: #8a4bf0;
+  background: #8a4bf0;
 }
 
 @keyframes marquee {
-    0% {
-        transform: translateX(100%);
-    }
+  0% {
+    transform: translateX(100%);
+  }
 
-    100% {
-        transform: translateX(-100%);
-    }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 .animate-slideDown {
-    animation-name: slideDown;
-    animation-duration: 1.8s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
+  animation-name: slideDown;
+  animation-duration: 1.8s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
 }
 
 .animate-slideUp {
-    animation-name: slideUp;
-    animation-duration: .5s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
+  animation-name: slideUp;
+  animation-duration: .5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
 }
 
 .animate-slideLeft {
-    animation-name: slideLeft;
-    animation-duration: .3s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
+  animation-name: slideLeft;
+  animation-duration: .3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
 }
 
 .animate-slideRight {
-    animation-name: slideRight;
-    animation-duration: .5s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
+  animation-name: slideRight;
+  animation-duration: .5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
 }
 
 @keyframes slideDown {
-    0% {
-        transform: translateY(-100%);
-    }
+  0% {
+    transform: translateY(-100%);
+  }
 
-    100% {
-        transform: translateY(0);
-    }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideUp {
-    0% {
-        /* transform: translateY(10%); */
-        scale: 1.2;
-    }
+  0% {
+    /* transform: translateY(10%); */
+    scale: 1.2;
+  }
 
-    100% {
-        /* transform: translateY(0); */
-        scale: 1;
-    }
+  100% {
+    /* transform: translateY(0); */
+    scale: 1;
+  }
 }
 
 @keyframes slideLeft {
-    0% {
-        transform: translateX(5%);
-    }
+  0% {
+    transform: translateX(5%);
+  }
 
-    100% {
-        transform: translateX(0);
-    }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 @keyframes slideRight {
-    0% {
-        transform: translateX(0);
-    }
+  0% {
+    transform: translateX(0);
+  }
 
-    100% {
-        transform: translateX(-10);
-    }
+  100% {
+    transform: translateX(-10);
+  }
 }
 
 
@@ -278,155 +278,155 @@ body {
 
 
 .loader {
-    position: relative;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background: conic-gradient(var(--color, #4ade80) var(--percentage, 0%), #000000 var(--percentage, 0%) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: conic-gradient(var(--color, #4ade80) var(--percentage, 0%), #000000 var(--percentage, 0%) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .loader::after {
-    content: attr(data-label) '%';
-    position: absolute;
-    font-size: 0.6rem;
-    color: white;
-    font-weight: bold;
-    z-index: 2;
+  content: attr(data-label) '%';
+  position: absolute;
+  font-size: 0.6rem;
+  color: white;
+  font-weight: bold;
+  z-index: 2;
 }
 
 .loader::before {
-    content: "";
-    position: absolute;
-    top: 7px;
-    left: 7px;
-    right: 7px;
-    bottom: 7px;
-    background: #212121;
-    border-radius: 50%;
-    border: 2px solid #292929;
-    box-shadow:
-        inset -1px -1px 2px rgba(255, 255, 255, 0.2),
-        inset 2px 2px 3px rgba(0, 0, 0, 0.5);
-    z-index: 1;
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  right: 7px;
+  bottom: 7px;
+  background: #212121;
+  border-radius: 50%;
+  border: 2px solid #292929;
+  box-shadow:
+    inset -1px -1px 2px rgba(255, 255, 255, 0.2),
+    inset 2px 2px 3px rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 
 .input__container {
-    position: relative;
-    background: #f40051;
-    padding: 20px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 15px;
-    border: 4px solid #000;
-    max-width: 350px;
-    transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    transform-style: preserve-3d;
-    transform: rotateX(10deg) rotateY(-10deg);
-    perspective: 1000px;
-    box-shadow: 10px 10px 0 #000;
+  position: relative;
+  background: #f40051;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  border: 4px solid #000;
+  max-width: 350px;
+  transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+  transform: rotateX(10deg) rotateY(-10deg);
+  perspective: 1000px;
+  box-shadow: 10px 10px 0 #000;
 }
 
 .input__container:hover {
-    transform: rotateX(5deg) rotateY(1 deg) scale(1.05);
-    box-shadow: 25px 25px 0 -5px #890101, 25px 25px 0 0 #000;
+  transform: rotateX(5deg) rotateY(1 deg) scale(1.05);
+  box-shadow: 25px 25px 0 -5px #890101, 25px 25px 0 0 #000;
 }
 
 .shadow__input {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    bottom: 0;
-    z-index: -1;
-    transform: translateZ(-50px);
-    background: linear-gradient(45deg,
-            rgba(255, 107, 107, 0.4) 0%,
-            rgba(255, 107, 107, 0.1) 100%);
-    filter: blur(20px);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transform: translateZ(-50px);
+  background: linear-gradient(45deg,
+      rgba(255, 107, 107, 0.4) 0%,
+      rgba(255, 107, 107, 0.1) 100%);
+  filter: blur(20px);
 }
 
 .input__button__shadow {
-    cursor: pointer;
-    border: 3px solid #000;
-    background: #ff6098;
-    transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    transform: translateZ(20px);
-    position: relative;
-    z-index: 3;
-    font-weight: bold;
-    text-transform: uppercase;
+  cursor: pointer;
+  border: 3px solid #000;
+  background: #ff6098;
+  transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  transform: translateZ(20px);
+  position: relative;
+  z-index: 3;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .input__button__shadow:hover {
-    background: #e9b50b;
-    transform: translateZ(10px) translateX(-5px) translateY(-5px);
-    box-shadow: 5px 5px 0 0 #000;
+  background: #e9b50b;
+  transform: translateZ(10px) translateX(-5px) translateY(-5px);
+  box-shadow: 5px 5px 0 0 #000;
 }
 
 .input__button__shadow svg {
-    fill: #000;
-    width: 25px;
-    height: 25px;
+  fill: #000;
+  width: 25px;
+  height: 25px;
 }
 
 .input__search {
-    width: 100%;
-    outline: none;
-    border: 3px solid #000;
-    padding: 15px;
-    font-size: 18px;
-    background: #ffffff;
-    color: #000;
-    transform: translateZ(10px);
-    transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    position: relative;
-    z-index: 3;
-    font-family: "Roboto", Arial, sans-serif;
-    letter-spacing: -0.5px;
+  width: 100%;
+  outline: none;
+  border: 3px solid #000;
+  padding: 15px;
+  font-size: 18px;
+  background: #ffffff;
+  color: #000;
+  transform: translateZ(10px);
+  transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  z-index: 3;
+  font-family: "Roboto", Arial, sans-serif;
+  letter-spacing: -0.5px;
 }
 
 .input__search::placeholder {
-    color: #666;
-    font-weight: bold;
-    text-transform: uppercase;
+  color: #666;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .input__search:hover,
 .input__search:focus {
-    background: #f0f0f0;
-    transform: translateZ(20px) translateX(-5px) translateY(-5px);
-    box-shadow: 5px 5px 0 0 #000;
+  background: #f0f0f0;
+  transform: translateZ(20px) translateX(-5px) translateY(-5px);
+  box-shadow: 5px 5px 0 0 #000;
 }
 
 .input__container::before {
-    content: "Usuario";
-    position: absolute;
-    top: -15px;
-    left: 20px;
-    background: #e90b4a;
-    color: #000;
-    font-weight: bold;
-    padding: 5px 10px;
-    font-size: 14px;
-    transform: translateZ(50px);
-    z-index: 4;
-    border: 2px solid #000;
+  content: "Usuario";
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  background: #e90b4a;
+  color: #000;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 14px;
+  transform: translateZ(50px);
+  z-index: 4;
+  border: 2px solid #000;
 }
 
 
 
 
-/* From Uiverse.io by StealthWorm */ 
+/* From Uiverse.io by StealthWorm */
 .btn {
   display: flex;
   justify-content: center;
@@ -442,13 +442,11 @@ body {
   animation: gradient_301 5s ease infinite;
   border: double 4px transparent;
   background-image: linear-gradient(#f90b0b, #212121),
-    linear-gradient(
-      137.48deg,
+    linear-gradient(137.48deg,
       #ffdb3b 10%,
       #fe53bb 45%,
       #8f51ea 67%,
-      #0044ff 87%
-    );
+      #0044ff 87%);
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
@@ -602,4 +600,11 @@ strong {
     transform: scale(0.75);
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
   }
+}
+
+section {
+  position: relative;
+  margin: 1rem 0;
+  padding: 1rem 0;
+  
 }

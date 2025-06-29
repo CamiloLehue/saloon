@@ -50,7 +50,7 @@ function Servicios() {
                                 >
                                     <img src={service.img} alt={service.name} className="group-hover:-translate-x-5 w-full h-full object-cover group-hover:scale-105 transition-all duration-500" />
                                     <div className="absolute  left-0 top-0 w-full h-full bg-gradient-to-l from-rose-200/50 ">
-                                        <div className="absolute bottom-10 left-10  h-10  bg-black/20 group-hover:bg-rose-400 transition-all duration-300 -skew-3  px-5 flex justify-center items-center">
+                                        <div className="absolute bottom-10 left-10  h-10  bg-black/20 group-hover:bg-rose-400 transition-all dur -skew-3  px-5 flex justify-center items-center">
                                             <h2 className="text-white font-bold uppercase ">
                                                 {
                                                     service.name

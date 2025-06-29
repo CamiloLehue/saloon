@@ -34,7 +34,7 @@ type ApiResponse = {
 
 
 export const getBookyng = async (): Promise<BookyngType[]> => {
-    const response = await fetch("http://192.168.1.83:8000/api/ventas/");
+    const response = await fetch("http://192.168.1.118:8000/api/ventas/");
 
     if (!response.ok || response.redirected) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -47,7 +47,7 @@ export const getBookyng = async (): Promise<BookyngType[]> => {
 
 export const saveBooking = async (data: BookyngType): Promise<void> => {
     try {
-        const response = await fetch("http://192.168.1.83:8000/api/ventas/", {
+        const response = await fetch("http://192.168.1.118:8000/api/ventas/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -67,7 +67,7 @@ export const saveBooking = async (data: BookyngType): Promise<void> => {
 };
 
 export const getFechaHora = async (): Promise<string[]> => {
-    const response = await fetch("http://192.168.1.83:8000/api/horarios/");
+    const response = await fetch("http://192.168.1.118:8000/api/horarios/");
 
     if (!response.ok || response.redirected) {
         throw new Error(`HTTP error! status: ${response.status}`);
